@@ -1,0 +1,47 @@
+<%- include('partials/header'); %>
+<main class="o-container">
+    <header class="c-category-header">
+        <h1 class="c-category-header__title"><%= category.name %></h1>
+        <p class="c-category-header__description"><%= category.description %></p>
+        <hr class="c-category-header__divider">
+    </header>
+
+    <div class="o-main-layout">
+        <aside class="c-sidebar">
+            <h4 class="c-sidebar__title">Precio</h4>
+            <form action="/filtrar" method="GET" class="c-filter-form">
+                <div class="c-filter-form__group">
+                    <div class="c-input-wrapper">
+                        <label>Min</label>
+                        <input type="number" name="min" placeholder="">
+                    </div>
+                    <div class="c-input-wrapper">
+                        <label>Max</label>
+                        <input type="number" name="max" placeholder="">
+                    </div>
+                </div>
+                <button type="submit" class="c-btn-filter">Filtrar Productos</button>
+            </form>
+        </aside>
+
+        <section class="o-products-grid">
+            <% category.products.forEach(product => { %>
+                <article class="c-product-card">
+                  <div class="product-card">
+            <a href="/product/<%= product.id %>" class="product-link">
+                <div class="product-image">
+                <img src="<%= product.imagePath %>" alt="<%= product.name %>">
+        </div>
+                <div class="product-info">
+                <h3><%= product.name %></h3>
+                <p><%= product.description %></p>
+                <span>$<%= product.price %></span>
+                </div>
+            </a>
+        </div>
+                </article>
+            <% }) %>
+        </section>
+    </div>
+</main>
+<%- include('partials/footer'); %>

@@ -1,0 +1,32 @@
+<%- include('partials/header'); %>
+
+<main class="auth-container">
+    <section class="auth-card">
+        <h1 class="auth-title">Crea una cuenta</h1>
+        
+        <form action="/register" method="POST" class="auth-form">
+            <div class="auth-group">
+                <label for="email" class="auth-label">Correo electrónico</label>
+                <input type="email" id="email" name="email" class="auth-input" required>
+            </div>
+
+            <div class="auth-group">
+                <label for="password" class="auth-label">Contraseña</label>
+                <input type="password" id="password" name="password" class="auth-input" required>
+            </div>
+
+            <div class="auth-group">
+                <label for="confirmPassword" class="auth-label">Confirma tu contraseña</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="auth-input" required>
+            </div>
+
+            <button type="submit" class="auth-button">Crear cuenta</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>¿Ya tienes una cuenta? <a href="/login" class="auth-link">Inicia sesión</a></p>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer'); %>
